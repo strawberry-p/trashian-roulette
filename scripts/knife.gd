@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 @export var speed = 1000
-@export var curve = 14
+@export var curve = 72
 
 var move = false;
 var dir: Vector2
@@ -34,9 +34,9 @@ func _physics_process(delta: float) -> void:
 		move_and_collide(dir * speed * delta)
 		position.x += pixels
 		if(modulo(abs(rotation_degrees), 360) < 90):
-			pixels += curve * delta
-		else:
 			pixels += -curve * delta
+		else:
+			pixels += curve * delta
 		if scale.x > 0.2:
 			scale.x -= 0.03
 	else:

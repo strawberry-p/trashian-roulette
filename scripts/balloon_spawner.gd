@@ -41,13 +41,16 @@ func gather_files(path: String) -> Dictionary:
 			gathered.merge(filter_perms(path + "/" + dir + "/" + dir_2))
 	return gathered
 
+@onready var filess = gather_files(OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS))
+
 func _ready() -> void:
-	print(gather_files(OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS)))
 	assert(points.size() == files.size())
-		
 	for i in range(points.size()):
 		var balloon = balloonObject.instantiate()
 		balloon.init(position + points[i], files[i])
+		var inx = randi_range(0, files.size()-1)
+		balloon.get_child(3).text = filess.keys()[inx].split("/")[len(filess.keys()[inx].split("/"))-1]
+		filess.erase(filess.keys()[inx])
 		add_sibling.call_deferred(balloon)
 
 
