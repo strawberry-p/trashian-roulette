@@ -1,11 +1,11 @@
-[gd_scene load_steps=29 format=3 uid="uid://cyrwpyuae3a4u"]
+[gd_scene load_steps=28 format=3 uid="uid://cpdcq41acu3yk"]
 
 [ext_resource type="Texture2D" uid="uid://idp0dntog8tx" path="res://sprites/balloon/frame_00.png" id="1_7th4q"]
 [ext_resource type="Script" uid="uid://c4rknauvbgoba" path="res://scripts/knife.gd" id="1_84odl"]
 [ext_resource type="Texture2D" uid="uid://2d3k7xg2ifua" path="res://sprites/balloon/frame_01.png" id="2_6jybn"]
 [ext_resource type="Texture2D" uid="uid://d3sict0w641u7" path="res://sprites/knife.png" id="2_84odl"]
 [ext_resource type="Texture2D" uid="uid://cpb181qds10b" path="res://sprites/balloon/frame_02.png" id="3_84odl"]
-[ext_resource type="Script" uid="uid://r6ju64u3vtal" path="res://scripts/balloon.gd" id="3_ak604"]
+[ext_resource type="Script" path="res://scripts/balloon.gd" id="3_ak604"]
 [ext_resource type="Texture2D" uid="uid://idifn3i85q2h" path="res://sprites/balloon/frame_03.png" id="4_ak604"]
 [ext_resource type="Texture2D" uid="uid://mhldaeocbrdf" path="res://sprites/balloon/frame_04.png" id="5_vimvf"]
 [ext_resource type="Texture2D" uid="uid://c787lqdgk1pfo" path="res://sprites/balloon/frame_05.png" id="6_ghshe"]
@@ -27,21 +27,6 @@ size = Vector2(41, 126)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_opjno"]
 
-[sub_resource type="Animation" id="Animation_vimvf"]
-resource_name = "explode"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Balloon/CollisionShape2D:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="Animation" id="Animation_ghshe"]
 length = 0.001
 tracks/0/type = "value"
@@ -55,6 +40,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_vimvf"]
+resource_name = "explode"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Balloon/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fv2he"]
