@@ -2,9 +2,6 @@ extends Node2D
 
 @export var balloonObject: PackedScene
 @export var points: PackedVector2Array
-@export var files: PackedStringArray
-
-var filesDict: Dictionary
 
 func calculate_score(dir: String, filename: String) -> int:
 	if dir.contains("tmp") || dir.contains("Downloads") || dir.contains("Trash") || dir.contains("cache"):
@@ -17,7 +14,7 @@ func calculate_score(dir: String, filename: String) -> int:
 			return 2
 		"ebup", "mp3", "wav", "txt", "iso", "ttf", "mp4", "mkv", "jpg", "jpeg", "png", "zip", "gif", "webm":
 			return 1
-		"log", "tar.gz", "tmp", "temp", "old", "dmp", "gid", "fts":
+		"log", "tar.gz", "tmp", "temp", "old", "dmp", "gid", "fts", "bak", "out":
 			return -1
 		_:
 			return 0
@@ -31,7 +28,7 @@ func filter_perms(dirPath: String) -> Dictionary:
 			filtered[fp] = calculate_score(dirPath, fp)
 	return filtered
 
-func gather_files(path: String) -> Dictionary:
+func gather_files(path: String) -> Array:
 	var files = DirAccess.get_directories_at(path)
 	var gathered = {}
 	gathered.merge(filter_perms(path))
@@ -39,18 +36,29 @@ func gather_files(path: String) -> Dictionary:
 		gathered.merge(filter_perms(path + "/" + dir))
 		for dir_2 in DirAccess.get_directories_at(path + "/" + dir):
 			gathered.merge(filter_perms(path + "/" + dir + "/" + dir_2))
-	return gathered
+	var keys = gathered.keys()
+	keys.sort_custom(func(a, b): return gathered[a] < gathered[b])
+	var sorted_gathered = {}
+	for key in keys:
+		sorted_gathered[key] = gathered[key]
+	
+	var sorted_keys = sorted_gathered.keys()
+	var output = []
+	for ki in range(sorted_keys.size() / 2):
+		output.append(sorted_keys[ki])
+		output.append(sorted_keys[sorted_keys.size() - ki - 1])
+		
+	return output
 
-@onready var filess = gather_files(OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS))
+@onready var files = gather_files(OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS))
 
 func _ready() -> void:
-	assert(points.size() == files.size())
+	assert(points.size() <= files.size())
 	for i in range(points.size()):
 		var balloon = balloonObject.instantiate()
 		balloon.init(position + points[i], files[i])
-		var inx = randi_range(0, files.size()-1)
-		balloon.get_child(3).text = filess.keys()[inx].split("/")[len(filess.keys()[inx].split("/"))-1]
-		filess.erase(filess.keys()[inx])
+		balloon.get_child(3).text = files[i].split("/")[len(files[i].split("/"))-1]
+		files.erase(i)
 		add_sibling.call_deferred(balloon)
 
 

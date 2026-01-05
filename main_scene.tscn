@@ -27,6 +27,7 @@ freeze_mode = 1
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_84odl")
+curve = -28
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Knife"]
 position = Vector2(0, -4.5)
@@ -44,5 +45,4 @@ texture = ExtResource("2_84odl")
 position = Vector2(564, 337)
 script = ExtResource("4_8mm7a")
 balloonObject = ExtResource("3_d5x1h")
-points = PackedVector2Array(-200, -100, 0, -100, 200, -100)
-files = PackedStringArray("System32", "log_2007_05_01.txt", "HOMEWORK")
+points = PackedVector2Array(-200, -100, 0, -100, 200, -100, 400, -100, -400, -100)
