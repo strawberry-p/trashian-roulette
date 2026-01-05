@@ -13,4 +13,4 @@ func _process(delta: float) -> void:
 	if collision:
 		var collider = collision.get_collider()
 		if collider.has_method("is_in_group") && collider.is_in_group("balloon"):
-			print("WAOW !!!")
+			collider.start_explode()
