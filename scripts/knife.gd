@@ -1,11 +1,13 @@
 extends RigidBody2D
 
-@export var speed = 200
+@export var speed = 1000
+@export var curve = 14
 
 var move = false;
 var dir: Vector2
 var initialPos: Vector2
 var pixels = 0.0
+
 
 
 func _ready() -> void:
@@ -26,18 +28,20 @@ func modulo(a, b):
 		return a
 
 func _physics_process(delta: float) -> void:
-	if(move):
+	if !$VisibleOnScreenNotifier2D.is_on_screen():
+		respawn()
+	if move:
 		move_and_collide(dir * speed * delta)
 		position.x += pixels
 		if(modulo(abs(rotation_degrees), 360) < 90):
-			pixels += .06
+			pixels += curve * delta
 		else:
-			pixels += -.06
+			pixels += -curve * delta
 		if scale.x > 0.2:
 			scale.x -= 0.03
-	if(!move):
+	else:
 		look_at(get_global_mouse_position());
-	if(!move && Input.is_action_just_pressed("Click")):
-		pixels = 0.0
-		dir = position.direction_to(get_global_mouse_position()).normalized()
-		move = true
+		if Input.is_action_just_pressed("Click"):
+			pixels = 0.0
+			dir = position.direction_to(get_global_mouse_position()).normalized()
+			move = true

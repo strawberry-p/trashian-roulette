@@ -38,6 +38,8 @@ rotation = 1.5707964
 scale = Vector2(4, 4)
 texture = ExtResource("2_84odl")
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Knife"]
+
 [node name="BalloonSpawner" type="Node2D" parent="."]
 position = Vector2(564, 337)
 script = ExtResource("4_8mm7a")
