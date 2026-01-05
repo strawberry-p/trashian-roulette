@@ -1,8 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://cyrwpyuae3a4u"]
+[gd_scene load_steps=24 format=3 uid="uid://cpdcq41acu3yk"]
 
 [ext_resource type="Texture2D" uid="uid://idp0dntog8tx" path="res://sprites/balloon/frame_00.png" id="1_7th4q"]
 [ext_resource type="Script" uid="uid://c4rknauvbgoba" path="res://scripts/knife.gd" id="1_84odl"]
 [ext_resource type="Texture2D" uid="uid://2d3k7xg2ifua" path="res://sprites/balloon/frame_01.png" id="2_6jybn"]
+[ext_resource type="Texture2D" uid="uid://d3sict0w641u7" path="res://sprites/knife.png" id="2_84odl"]
 [ext_resource type="Texture2D" uid="uid://cpb181qds10b" path="res://sprites/balloon/frame_02.png" id="3_84odl"]
 [ext_resource type="Texture2D" uid="uid://idifn3i85q2h" path="res://sprites/balloon/frame_03.png" id="4_ak604"]
 [ext_resource type="Texture2D" uid="uid://mhldaeocbrdf" path="res://sprites/balloon/frame_04.png" id="5_vimvf"]
@@ -19,21 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://iwl7b5u76bgb" path="res://sprites/balloon/frame_15.png" id="16_o4fqm"]
 [ext_resource type="Texture2D" uid="uid://dx6c632mp3cs7" path="res://sprites/balloon/frame_16.png" id="17_gfmxp"]
 [ext_resource type="Texture2D" uid="uid://ckol0jb0xlutk" path="res://sprites/balloon/frame_17.png" id="18_1n88h"]
-[ext_resource type="Texture2D" uid="uid://i5l4sqnw3cjo" path="res://icon.svg" id="19_6jybn"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_84odl"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("19_6jybn")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6jybn"]
-size = Vector2(20, 126)
+size = Vector2(41, 126)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_opjno"]
 
@@ -118,12 +107,13 @@ freeze = true
 freeze_mode = 1
 script = ExtResource("1_84odl")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Knife"]
-scale = Vector2(0.171875, 1)
-sprite_frames = SubResource("SpriteFrames_84odl")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Knife"]
+position = Vector2(-4.5, 0)
 shape = SubResource("RectangleShape2D_6jybn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Knife"]
+scale = Vector2(4, 4)
+texture = ExtResource("2_84odl")
 
 [node name="Balloon" type="RigidBody2D" parent="." groups=["balloon"]]
 position = Vector2(417, 237)
