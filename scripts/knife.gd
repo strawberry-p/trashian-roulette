@@ -5,6 +5,8 @@ extends RigidBody2D
 var move = false;
 var dir: Vector2
 var initialPos: Vector2
+var pixels = 0.0
+
 
 func _ready() -> void:
 	initialPos = position
@@ -15,12 +17,27 @@ func respawn() -> void:
 	move = false
 	show()
 
+func modulo(a, b):
+	if(a < b):
+		return a
+	if(a > b):
+		while(a > b):
+			a -= b
+		return a
+
 func _physics_process(delta: float) -> void:
 	if(move):
 		move_and_collide(dir * speed * delta)
+		position.x += pixels
+		if(modulo(abs(rotation_degrees), 360) < 90):
+			pixels += .06
+		else:
+			pixels += -.06
 		if scale.x > 0.2:
 			scale.x -= 0.03
-	look_at(get_global_mouse_position());
+	if(!move):
+		look_at(get_global_mouse_position());
 	if(!move && Input.is_action_just_pressed("Click")):
+		pixels = 0.0
 		dir = position.direction_to(get_global_mouse_position()).normalized()
 		move = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cyrwpyuae3a4u"]
+[gd_scene load_steps=7 format=3 uid="uid://cpdcq41acu3yk"]
 
 [ext_resource type="Script" uid="uid://c4rknauvbgoba" path="res://scripts/knife.gd" id="1_84odl"]
 [ext_resource type="Texture2D" uid="uid://cdyls5bpia1t4" path="res://sprites/blank.png" id="1_vimvf"]
