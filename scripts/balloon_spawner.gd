@@ -4,7 +4,6 @@ extends Node2D
 @export var points: PackedVector2Array
 @export var files: PackedStringArray
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	assert(points.size() == files.size())
 		
@@ -14,6 +13,5 @@ func _ready() -> void:
 		add_sibling.call_deferred(balloon)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://dhfl0q3ul1f7v" path="res://scripts/balloon_spawner.gd" id="4_8mm7a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6jybn"]
-size = Vector2(41, 126)
+size = Vector2(39.00003, 126)
 
 [node name="MainScene" type="Node2D"]
 texture_filter = 1
@@ -17,19 +17,24 @@ position = Vector2(576, 324)
 scale = Vector2(36, 20.25)
 texture = ExtResource("1_vimvf")
 
-[node name="Knife" type="RigidBody2D" parent="."]
+[node name="Knife" type="RigidBody2D" parent="." groups=["knife"]]
+z_index = 1
 position = Vector2(606, 510)
 gravity_scale = 0.0
 lock_rotation = true
 freeze = true
 freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_84odl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Knife"]
-position = Vector2(-4.5, 0)
+position = Vector2(0, -4.5)
+rotation = 1.5707964
 shape = SubResource("RectangleShape2D_6jybn")
 
 [node name="Sprite2D" type="Sprite2D" parent="Knife"]
+rotation = 1.5707964
 scale = Vector2(4, 4)
 texture = ExtResource("2_84odl")
 

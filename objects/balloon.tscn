@@ -37,6 +37,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Balloon:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_vimvf"]
 resource_name = "explode"
@@ -53,19 +65,17 @@ tracks/0/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/1/type = "method"
+tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Balloon")
+tracks/1/path = NodePath("Balloon:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.85),
+"times": PackedFloat32Array(0.8666667),
 "transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"queue_free"
-}]
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fv2he"]
@@ -80,7 +90,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_3k386")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -139,7 +149,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("19_anwef")
 }],
-"loop": true,
+"loop": false,
 "name": &"pop",
 "speed": 20.0
 }]
@@ -148,10 +158,13 @@ animations = [{
 font_color = Color(0, 0, 0, 1)
 
 [node name="Balloon" type="RigidBody2D" groups=["balloon"]]
+collision_layer = 0
 gravity_scale = 0.0
 lock_rotation = true
 freeze = true
 freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 10
 script = ExtResource("1_hbjy3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -165,8 +178,6 @@ libraries = {
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o3jxj")
-animation = &"pop"
-frame_progress = 0.48214158
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
