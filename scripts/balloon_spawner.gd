@@ -27,7 +27,7 @@ func filter_perms(dirPath: String) -> Dictionary:
 	for i in DirAccess.get_files_at(dirPath):
 		var fp = dirPath + "/" + i
 		var p = FileAccess.get_unix_permissions(fp)
-		if p ^ FileAccess.UNIX_WRITE_OWNER || p ^ FileAccess.UNIX_WRITE_GROUP || p ^ FileAccess.UNIX_WRITE_OTHER:
+		if OS.get_name() == "Windows" || p ^ FileAccess.UNIX_WRITE_OWNER || p ^ FileAccess.UNIX_WRITE_GROUP || p ^ FileAccess.UNIX_WRITE_OTHER:
 			filtered[fp] = calculate_score(dirPath, fp)
 	return filtered
 
