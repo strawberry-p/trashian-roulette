@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://d2mpf0goyv4dj"]
+
+[ext_resource type="Texture2D" uid="uid://cdyls5bpia1t4" path="res://sprites/blank.png" id="1_ak2if"]
+[ext_resource type="Script" uid="uid://dqeempu57j33y" path="res://title_screen.gd" id="1_ig5kc"]
+[ext_resource type="FontFile" uid="uid://cq0yx4u4o83yn" path="res://Jersey_10/Jersey10-Regular.ttf" id="2_ig5kc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_05l2w"]
+font = ExtResource("2_ig5kc")
+font_size = 128
+font_color = Color(0.19434929, 0.19434926, 0.19434926, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hafda"]
+font = ExtResource("2_ig5kc")
+font_size = 224
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tpml5"]
+font = ExtResource("2_ig5kc")
+font_size = 160
+font_color = Color(0.46229059, 0.46229059, 0.46229059, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ak2if"]
+font = ExtResource("2_ig5kc")
+font_color = Color(0.00069389754, 0.00069389766, 0.0006938976, 1)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ig5kc")
+
+[node name="Blank" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(36, 20.25)
+texture = ExtResource("1_ak2if")
+
+[node name="Label" type="Label" parent="."]
+offset_top = 1.0
+offset_right = 1152.0
+offset_bottom = 139.0
+text = "-- Trashian Roulette --"
+label_settings = SubResource("LabelSettings_05l2w")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_top = 55.0
+offset_right = 1152.0
+offset_bottom = 295.0
+text = "File Cleaner"
+label_settings = SubResource("LabelSettings_hafda")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 7.0
+offset_top = 210.0
+offset_right = 1159.0
+offset_bottom = 450.0
+text = "*- THE GAME -*"
+label_settings = SubResource("LabelSettings_tpml5")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = 525.0
+offset_top = 423.0
+offset_right = 622.0
+offset_bottom = 501.0
+theme_override_fonts/font = ExtResource("2_ig5kc")
+theme_override_font_sizes/font_size = 64
+text = "Play"
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 523.0
+offset_top = 498.0
+offset_right = 623.0
+offset_bottom = 521.0
+text = "(at your own risk)"
+label_settings = SubResource("LabelSettings_ak2if")
