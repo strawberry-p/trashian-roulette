@@ -3,6 +3,7 @@ extends RigidBody2D
 @export var speed = 200
 
 var move = false;
+var dir: Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,7 +13,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if(move):
-		var collision = move_and_collide(Vector2(1152*(rotation/360), -speed * delta))
+		var collision = move_and_collide(dir * speed * delta)
 		if collision:
 			var collider = collision.get_collider()
 			if collider.has_method("is_in_group") && collider.is_in_group("balloon"):
@@ -24,4 +25,5 @@ func _process(delta: float) -> void:
 	look_at(get_viewport().get_mouse_position()-Vector2(100, 0));
 	rotation += 90;
 	if(Input.is_action_just_pressed("Click")):
+		dir = position.direction_to(get_global_mouse_position()).normalized()
 		move = true

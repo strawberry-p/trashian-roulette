@@ -14,5 +14,6 @@ func _process(delta: float) -> void:
 	pass
 
 func start_explode():
+	print("EXPLODING ", $Label.text)
 	$AnimatedSprite2D.play("pop")
 	$AnimationPlayer.play("explode")
