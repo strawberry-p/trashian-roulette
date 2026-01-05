@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://cyrwpyuae3a4u"]
+[gd_scene load_steps=29 format=3 uid="uid://cpdcq41acu3yk"]
 
 [ext_resource type="Texture2D" uid="uid://idp0dntog8tx" path="res://sprites/balloon/frame_00.png" id="1_7th4q"]
 [ext_resource type="Script" uid="uid://c4rknauvbgoba" path="res://scripts/knife.gd" id="1_84odl"]
+[ext_resource type="Texture2D" uid="uid://cdyls5bpia1t4" path="res://sprites/blank.png" id="1_vimvf"]
 [ext_resource type="Texture2D" uid="uid://2d3k7xg2ifua" path="res://sprites/balloon/frame_01.png" id="2_6jybn"]
 [ext_resource type="Texture2D" uid="uid://d3sict0w641u7" path="res://sprites/knife.png" id="2_84odl"]
 [ext_resource type="Texture2D" uid="uid://cpb181qds10b" path="res://sprites/balloon/frame_02.png" id="3_84odl"]
@@ -21,9 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://iwl7b5u76bgb" path="res://sprites/balloon/frame_15.png" id="16_o4fqm"]
 [ext_resource type="Texture2D" uid="uid://dx6c632mp3cs7" path="res://sprites/balloon/frame_16.png" id="17_gfmxp"]
 [ext_resource type="Texture2D" uid="uid://ckol0jb0xlutk" path="res://sprites/balloon/frame_17.png" id="18_1n88h"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jybn"]
-size = Vector2(41, 126)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_opjno"]
 
@@ -148,24 +146,16 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jybn"]
+size = Vector2(41, 126)
+
 [node name="MainScene" type="Node2D"]
 texture_filter = 1
 
-[node name="Knife" type="RigidBody2D" parent="."]
-position = Vector2(422, 454)
-gravity_scale = 0.0
-lock_rotation = true
-freeze = true
-freeze_mode = 1
-script = ExtResource("1_84odl")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Knife"]
-position = Vector2(-4.5, 0)
-shape = SubResource("RectangleShape2D_6jybn")
-
-[node name="Sprite2D" type="Sprite2D" parent="Knife"]
-scale = Vector2(4, 4)
-texture = ExtResource("2_84odl")
+[node name="Blank" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(36, 20.25)
+texture = ExtResource("1_vimvf")
 
 [node name="Balloon" type="RigidBody2D" parent="." groups=["balloon"]]
 position = Vector2(417, 237)
@@ -188,3 +178,19 @@ libraries = {
 sprite_frames = SubResource("SpriteFrames_o3jxj")
 animation = &"pop"
 frame_progress = 0.48214158
+
+[node name="Knife" type="RigidBody2D" parent="."]
+position = Vector2(422, 454)
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+script = ExtResource("1_84odl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Knife"]
+position = Vector2(-4.5, 0)
+shape = SubResource("RectangleShape2D_6jybn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Knife"]
+scale = Vector2(4, 4)
+texture = ExtResource("2_84odl")

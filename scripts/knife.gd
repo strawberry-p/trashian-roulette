@@ -15,3 +15,5 @@ func _process(delta: float) -> void:
 		if collider.has_method("is_in_group") && collider.is_in_group("balloon"):
 			collider.start_explode()
 			hide()
+	if scale[1] > 0.2:
+		scale[1] -= 0.03;
