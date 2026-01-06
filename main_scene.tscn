@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cpdcq41acu3yk"]
+[gd_scene load_steps=20 format=3 uid="uid://cpdcq41acu3yk"]
 
 [ext_resource type="Script" uid="uid://bbanfhmaaxrbv" path="res://main_scene.gd" id="1_hq1ik"]
 [ext_resource type="Texture2D" uid="uid://cdyls5bpia1t4" path="res://sprites/blank.png" id="1_vimvf"]
@@ -10,9 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://1csfwl3gkpya" path="res://sprites/bar.png" id="6_hq1ik"]
 [ext_resource type="Texture2D" uid="uid://cmbyvwja4v4k6" path="res://sprites/chargebar.png" id="6_wr18j"]
 [ext_resource type="Texture2D" uid="uid://dihr3vgegdlo7" path="res://sprites/crosshair.png" id="7_nfk4m"]
-[ext_resource type="Script" path="res://scripts/camera_2d.gd" id="9_7ycvg"]
+[ext_resource type="Script" uid="uid://6hqjlio1jj7d" path="res://scripts/camera_2d.gd" id="9_7ycvg"]
 [ext_resource type="FontFile" uid="uid://cq0yx4u4o83yn" path="res://Jersey_10/Jersey10-Regular.ttf" id="11_qwutr"]
-[ext_resource type="Script" path="res://scripts/chat.gd" id="12_671wp"]
+[ext_resource type="Script" uid="uid://c4e2g28ljc7kg" path="res://scripts/chat.gd" id="12_671wp"]
 [ext_resource type="AudioStream" uid="uid://c716v3n7nvbc8" path="res://other/HaiQualiti.mp3" id="13_mo76n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_671wp"]
@@ -152,4 +152,5 @@ vertical_alignment = 2
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_mo76n")
+volume_db = 0.3
 parameters/looping = true
