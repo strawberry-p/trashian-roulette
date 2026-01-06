@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	if !active:
 		return
 	for coll in get_colliding_bodies():
-		if coll && coll.is_in_group("knife") && !coll.has_collided:
+		if coll && coll.is_in_group("knife") && !coll.has_collided && not $AnimatedSprite2D.animation_finished.is_connected(hide):
 			print(coll)
 			coll.collided()
 			var cam = get_viewport().get_camera_2d()

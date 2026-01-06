@@ -113,6 +113,7 @@ func _process(delta: float) -> void:
 		inst.init(global_position + knifeSpawnPoint, Vector2(get_global_mouse_position().x, 648 - 648*power), recharge)
 		add_sibling(inst)
 		power = 0
+		raw_power = 0
 		$"../leMove/".position.y = 339 - 512.0 * power
 	if len(positions) > 1:
 		for i in positions:
