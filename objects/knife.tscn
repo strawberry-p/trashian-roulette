@@ -1,14 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://cbrmandc76c7p"]
 
 [ext_resource type="Script" uid="uid://c4rknauvbgoba" path="res://scripts/knife.gd" id="1_f3qjk"]
-[ext_resource type="Texture2D" uid="uid://d3sict0w641u7" path="res://sprites/knife.png" id="2_bx2o7"]
+[ext_resource type="Texture2D" uid="uid://yp82eqxjpf1u" path="res://sprites/knife2.png" id="2_bx2o7"]
 [ext_resource type="AudioStream" uid="uid://5qkypkg1krkg" path="res://other/oh_no.wav" id="3_bx2o7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6jybn"]
-size = Vector2(39.00003, 126)
+size = Vector2(39.00003, 134)
 
 [node name="Knife" type="RigidBody2D" groups=["knife"]]
+modulate = Color(0.65882355, 0.65882355, 0.65882355, 1)
 z_index = 1
+texture_filter = 2
 gravity_scale = 0.0
 lock_rotation = true
 freeze = true
@@ -19,7 +21,7 @@ script = ExtResource("1_f3qjk")
 curve = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4.5)
+position = Vector2(30, -1)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_6jybn")
 
