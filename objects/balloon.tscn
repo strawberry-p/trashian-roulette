@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://d0dejr3wjs8ca"]
+[gd_scene load_steps=27 format=3 uid="uid://d0dejr3wjs8ca"]
 
 [ext_resource type="Script" uid="uid://r6ju64u3vtal" path="res://scripts/balloon.gd" id="1_hbjy3"]
 [ext_resource type="Texture2D" uid="uid://idp0dntog8tx" path="res://sprites/balloon/frame_00.png" id="2_3k386"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://iwl7b5u76bgb" path="res://sprites/balloon/frame_15.png" id="17_jwwt0"]
 [ext_resource type="Texture2D" uid="uid://dx6c632mp3cs7" path="res://sprites/balloon/frame_16.png" id="18_scsch"]
 [ext_resource type="Texture2D" uid="uid://ckol0jb0xlutk" path="res://sprites/balloon/frame_17.png" id="19_anwef"]
+[ext_resource type="AudioStream" uid="uid://6xw6rax6ea8p" path="res://other/hell_yeah.wav" id="20_3k386"]
 
 [sub_resource type="Animation" id="Animation_ghshe"]
 length = 0.001
@@ -199,3 +200,7 @@ label_settings = SubResource("LabelSettings_hbjy3")
 horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_3k386")
+volume_db = 3.0

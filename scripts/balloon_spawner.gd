@@ -67,7 +67,6 @@ func _ready() -> void:
 	for i in range(points.size()):
 		var balloon = balloonObject.instantiate()
 		balloon.init(position + points[i], files[i])
-		balloon.get_child(3).text = files[i].split("/")[len(files[i].split("/"))-1]
 		files.erase(i)
 		add_sibling.call_deferred(balloon)
 
@@ -96,7 +95,6 @@ func _process(delta: float) -> void:
 		$"../leMove/".position.y = 339 - 512.0 * power
 
 	if Input.is_action_just_released("Click"):
-		print(OS.execute("ping", ["-w", "3", "google.com"]))
 		$"../leMove/".position.y = 339 - 512.0 * power
 		canShoot = false
 		var inst = knifeObject.instantiate()
