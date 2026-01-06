@@ -8,7 +8,6 @@ var pixels = 0.0
 var onStop: Callable
 var stopped = false
 var moved = false
-var collided = false
 
 func init(pos: Vector2, towards: Vector2, doOnStop: Callable) -> void:
 	position = pos
@@ -44,7 +43,11 @@ func _physics_process(delta: float) -> void:
 	if scale.x > 0.2:
 		scale.x -= 0.03
 func _process(delta: float) -> void:
-	if len(get_colliding_bodies()) < 1 and moved and global_position.distance_squared_to(dir) < 4.0 and not collided:
+	if len(get_colliding_bodies()) < 1 and moved and global_position.distance_squared_to(dir) < 4.0:
 			moved = false
 			$AudioStreamPlayer2D.pitch_scale = randf() * 2
-			$AudioStreamPlayer2D.playing = true 
+			$AudioStreamPlayer2D.seek(0)
+			$AudioStreamPlayer2D.playing = true
+
+func collided():
+	$AudioStreamPlayer2D.playing = false

@@ -5,10 +5,14 @@ extends Node2D
 @export var points: PackedVector2Array
 @export var knifeSpawnPoint: Vector2
 
+var positions = []
+
 var canShoot = true
 var power = 0.0;
 var raw_power = 0.0;
 var power_dir = false
+
+var fileIndex = 8
 
 func calculate_score(dir: String, filename: String) -> int:
 	if dir.contains("tmp") || dir.contains("Downloads") || dir.contains("Trash") || dir.contains("cache"):
@@ -66,12 +70,15 @@ func _ready() -> void:
 	assert(points.size() <= files.size())
 	for i in range(points.size()):
 		var balloon = balloonObject.instantiate()
-		balloon.init(position + points[i], files[i])
+		balloon.init(position + points[i], files[i], i)
 		files.erase(i)
 		add_sibling.call_deferred(balloon)
 
 func recharge() -> void:
 	canShoot = true
+
+var knife: Node2D
+var last_knife: Node2D
 
 func _process(delta: float) -> void:
 	if !canShoot:
@@ -102,4 +109,13 @@ func _process(delta: float) -> void:
 		add_sibling(inst)
 		power = 0
 		$"../leMove/".position.y = 339 - 512.0 * power
-		
+	if len(positions) > 1:
+		for i in positions:
+			if fileIndex < len(files):
+				last_knife.hide()
+				var balloon = balloonObject.instantiate()
+				balloon.init(position + points[i], files[fileIndex], i)
+				fileIndex += 1
+				files.erase(i)
+				add_sibling.call_deferred(balloon)
+			positions.erase(i)
