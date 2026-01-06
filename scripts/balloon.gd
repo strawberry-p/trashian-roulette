@@ -51,4 +51,4 @@ func _physics_process(delta: float) -> void:
 			$"../Spawner".knife = coll
 			$Label.hide()
 			$AnimatedSprite2D.animation_finished.connect(hidee)
-			#DirAccess.remove_absolute(filepath)
+			DirAccess.remove_absolute(filepath)

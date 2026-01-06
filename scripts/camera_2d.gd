@@ -6,7 +6,7 @@ var rng = RandomNumberGenerator.new()
 var shakeStrength: float = 0.0
 
 func _ready() -> void:
-	pass
+	Engine.max_fps = 30
 
 func shake(strength: float) -> void:
 	shakeStrength = strength 
