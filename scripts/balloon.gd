@@ -16,8 +16,7 @@ func _physics_process(delta: float) -> void:
 		return
 	for coll in get_colliding_bodies():
 		if coll && coll.is_in_group("knife"):
-			coll.collided = true
-			$AudioStreamPlayer2D.pitch_scale = randf() * 2
+			$AudioStreamPlayer2D.pitch_scale = randf() * 0.7 + 0.7
 			$AudioStreamPlayer2D.playing = true
 			$AnimatedSprite2D.play("pop")
 			active = false

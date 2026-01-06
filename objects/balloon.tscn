@@ -1,25 +1,25 @@
 [gd_scene load_steps=27 format=3 uid="uid://d0dejr3wjs8ca"]
 
 [ext_resource type="Script" uid="uid://r6ju64u3vtal" path="res://scripts/balloon.gd" id="1_hbjy3"]
-[ext_resource type="Texture2D" uid="uid://idp0dntog8tx" path="res://sprites/balloon/frame_00.png" id="2_3k386"]
-[ext_resource type="Texture2D" uid="uid://2d3k7xg2ifua" path="res://sprites/balloon/frame_01.png" id="3_j1fmh"]
-[ext_resource type="Texture2D" uid="uid://cpb181qds10b" path="res://sprites/balloon/frame_02.png" id="4_a8odj"]
-[ext_resource type="Texture2D" uid="uid://idifn3i85q2h" path="res://sprites/balloon/frame_03.png" id="5_6ghff"]
-[ext_resource type="Texture2D" uid="uid://mhldaeocbrdf" path="res://sprites/balloon/frame_04.png" id="6_3ucja"]
-[ext_resource type="Texture2D" uid="uid://c787lqdgk1pfo" path="res://sprites/balloon/frame_05.png" id="7_y03wi"]
-[ext_resource type="Texture2D" uid="uid://dfmwc56qx8bep" path="res://sprites/balloon/frame_06.png" id="8_pe5se"]
-[ext_resource type="Texture2D" uid="uid://ddbnrgtk30qt5" path="res://sprites/balloon/frame_07.png" id="9_vuwmj"]
-[ext_resource type="Texture2D" uid="uid://codui6mm0q6kq" path="res://sprites/balloon/frame_08.png" id="10_wntkw"]
-[ext_resource type="Texture2D" uid="uid://dn7eyps4ivjhi" path="res://sprites/balloon/frame_09.png" id="11_6dliw"]
-[ext_resource type="Texture2D" uid="uid://f6uhmumbdpof" path="res://sprites/balloon/frame_10.png" id="12_7qhik"]
-[ext_resource type="Texture2D" uid="uid://bthnvywiyyqs3" path="res://sprites/balloon/frame_11.png" id="13_bwtiw"]
-[ext_resource type="Texture2D" uid="uid://blxiv1ebx67pa" path="res://sprites/balloon/frame_12.png" id="14_un1p2"]
-[ext_resource type="Texture2D" uid="uid://cgbfsk83bxu6i" path="res://sprites/balloon/frame_13.png" id="15_bh083"]
-[ext_resource type="Texture2D" uid="uid://b01i33i14sdil" path="res://sprites/balloon/frame_14.png" id="16_0pr7c"]
-[ext_resource type="Texture2D" uid="uid://iwl7b5u76bgb" path="res://sprites/balloon/frame_15.png" id="17_jwwt0"]
-[ext_resource type="Texture2D" uid="uid://dx6c632mp3cs7" path="res://sprites/balloon/frame_16.png" id="18_scsch"]
-[ext_resource type="Texture2D" uid="uid://ckol0jb0xlutk" path="res://sprites/balloon/frame_17.png" id="19_anwef"]
+[ext_resource type="Texture2D" uid="uid://su61g84ixoow" path="res://sprites/balloon/frame1.png" id="3_j1fmh"]
+[ext_resource type="Texture2D" uid="uid://4gnfrsu4y6d8" path="res://sprites/balloon/frame2.png" id="4_a8odj"]
+[ext_resource type="Texture2D" uid="uid://bigc5mj0fdrx7" path="res://sprites/balloon/frame3.png" id="5_6ghff"]
+[ext_resource type="Texture2D" uid="uid://bt3v1v3osutow" path="res://sprites/balloon/frame4.png" id="6_3ucja"]
+[ext_resource type="Texture2D" uid="uid://c323x3yla0a02" path="res://sprites/balloon/frame5.png" id="7_y03wi"]
+[ext_resource type="Texture2D" uid="uid://wkexcot6qqdv" path="res://sprites/balloon/frame6.png" id="8_pe5se"]
+[ext_resource type="Texture2D" uid="uid://d3e6sqbqktuxx" path="res://sprites/balloon/frame7.png" id="9_vuwmj"]
+[ext_resource type="Texture2D" uid="uid://ohtcyw1lj03j" path="res://sprites/balloon/frame8.png" id="10_wntkw"]
+[ext_resource type="Texture2D" uid="uid://dxjyekne0lm8d" path="res://sprites/balloon/frame9.png" id="11_6dliw"]
+[ext_resource type="Texture2D" uid="uid://c0paobe4ghuo6" path="res://sprites/balloon/frame10.png" id="12_7qhik"]
+[ext_resource type="Texture2D" uid="uid://ku55a0b272hi" path="res://sprites/balloon/frame11.png" id="13_bwtiw"]
+[ext_resource type="Texture2D" uid="uid://dpope8awopu0k" path="res://sprites/balloon/frame12.png" id="14_un1p2"]
+[ext_resource type="Texture2D" uid="uid://bqwhkk28krqbb" path="res://sprites/balloon/frame13.png" id="15_bh083"]
+[ext_resource type="Texture2D" uid="uid://bto1bk2xu37kd" path="res://sprites/balloon/frame14.png" id="16_0pr7c"]
+[ext_resource type="Texture2D" uid="uid://bxv01u4cgx8n6" path="res://sprites/balloon/frame15.png" id="17_jwwt0"]
+[ext_resource type="Texture2D" uid="uid://cre0ikryygf2i" path="res://sprites/balloon/frame16.png" id="18_scsch"]
+[ext_resource type="Texture2D" uid="uid://cdfom42kpnqwi" path="res://sprites/balloon/frame17.png" id="19_anwef"]
 [ext_resource type="AudioStream" uid="uid://6xw6rax6ea8p" path="res://other/hell_yeah.wav" id="20_3k386"]
+[ext_resource type="Texture2D" uid="uid://deuyq232tlql5" path="res://sprites/balloon/frame18.png" id="20_24gft"]
 
 [sub_resource type="Animation" id="Animation_ghshe"]
 length = 0.001
@@ -50,7 +50,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_vimvf"]
 resource_name = "explode"
-length = 0.85
+length = 0.9
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -70,7 +70,7 @@ tracks/1/path = NodePath("Balloon:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.8666667),
+"times": PackedFloat32Array(0.9),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -86,16 +86,13 @@ _data = {
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_3k386")
+"texture": ExtResource("3_j1fmh")
 }],
 "loop": false,
 "name": &"default",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_3k386")
-}, {
 "duration": 1.0,
 "texture": ExtResource("3_j1fmh")
 }, {
@@ -146,6 +143,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("19_anwef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_24gft")
 }],
 "loop": false,
 "name": &"pop",
@@ -156,7 +156,8 @@ animations = [{
 radius = 24.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_hbjy3"]
-font_color = Color(0, 0, 0, 1)
+line_spacing = -5.0
+font_size = 14
 
 [node name="Balloon" type="RigidBody2D" groups=["balloon"]]
 texture_filter = 1
@@ -184,15 +185,15 @@ scale = Vector2(0.8125805, 0.9750972)
 shape = SubResource("CircleShape2D_opjno")
 
 [node name="Label" type="Label" parent="."]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(175, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -32.0
+offset_left = -75.0
 offset_top = 41.0
-offset_right = 32.0
+offset_right = 75.0
 offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2

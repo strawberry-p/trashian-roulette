@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cpdcq41acu3yk"]
+[gd_scene load_steps=9 format=3 uid="uid://cpdcq41acu3yk"]
 
 [ext_resource type="Script" uid="uid://bbanfhmaaxrbv" path="res://main_scene.gd" id="1_hq1ik"]
 [ext_resource type="Texture2D" uid="uid://cdyls5bpia1t4" path="res://sprites/blank.png" id="1_vimvf"]
 [ext_resource type="PackedScene" uid="uid://cbrmandc76c7p" path="res://objects/knife.tscn" id="2_d5x1h"]
 [ext_resource type="PackedScene" uid="uid://d0dejr3wjs8ca" path="res://objects/balloon.tscn" id="3_d5x1h"]
 [ext_resource type="Script" uid="uid://dhfl0q3ul1f7v" path="res://scripts/balloon_spawner.gd" id="4_8mm7a"]
+[ext_resource type="Texture2D" uid="uid://bw5641rg7xu1o" path="res://sprites/bg.png" id="5_66tet"]
 [ext_resource type="Texture2D" uid="uid://1csfwl3gkpya" path="res://sprites/bar.png" id="6_hq1ik"]
 [ext_resource type="Texture2D" uid="uid://dihr3vgegdlo7" path="res://sprites/crosshair.png" id="7_nfk4m"]
 
@@ -12,18 +13,23 @@
 texture_filter = 1
 script = ExtResource("1_hq1ik")
 
-[node name="Blank" type="Sprite2D" parent="."]
-position = Vector2(576, 324)
-scale = Vector2(36, 20.25)
-texture = ExtResource("1_vimvf")
-
 [node name="Spawner" type="Node2D" parent="."]
 position = Vector2(564, 337)
 script = ExtResource("4_8mm7a")
 balloonObject = ExtResource("3_d5x1h")
 knifeObject = ExtResource("2_d5x1h")
-points = PackedVector2Array(-150, -100, 0, -100, 150, -100, -150, -250, 0, -250, 150, -250, 0, 50, -150, 50, 150, 50)
+points = PackedVector2Array(-250, -160, -225, -40, -200, 80, -75, -160, -40, -40, -40, 80, 130, -160, 120, -40, 150, 80, 300, -160, 275, -40, 300, 80)
 knifeSpawnPoint = Vector2(0, 200)
+
+[node name="Sprite2D" type="Sprite2D" parent="Spawner"]
+position = Vector2(0, 5.999954)
+scale = Vector2(8.392555, 6.3749995)
+texture = ExtResource("5_66tet")
+
+[node name="Blank" type="Sprite2D" parent="."]
+position = Vector2(1081, 319)
+scale = Vector2(2.34375, 26.6875)
+texture = ExtResource("1_vimvf")
 
 [node name="bar" type="Sprite2D" parent="."]
 position = Vector2(1080, 339)
