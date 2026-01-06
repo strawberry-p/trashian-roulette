@@ -1,7 +1,13 @@
 extends Node2D
 
 @export var balloonObject: PackedScene
+@export var knifeObject: PackedScene
 @export var points: PackedVector2Array
+@export var knifeSpawnPoint: Vector2
+
+var canShoot = true
+var power = 0.0;
+var power_dir = false
 
 func calculate_score(dir: String, filename: String) -> int:
 	if dir.contains("tmp") || dir.contains("Downloads") || dir.contains("Trash") || dir.contains("cache"):
@@ -61,6 +67,30 @@ func _ready() -> void:
 		files.erase(i)
 		add_sibling.call_deferred(balloon)
 
+func recharge() -> void:
+	canShoot = true
 
 func _process(delta: float) -> void:
-	pass
+	if !canShoot:
+		return
+	
+	if Input.is_action_pressed("Click"):
+		if(power < 1) and not power_dir:
+			power += 0.05
+		elif(not power_dir):
+			power_dir = true
+		if(power > 0) and power_dir:
+			power -= 0.05
+		elif(power_dir):
+			power_dir = false
+		$"../leMove/".position.y = 339 - 512.0 * power
+
+	if Input.is_action_just_released("Click"):
+		$"../leMove/".position.y = 339 - 512.0 * power
+		canShoot = false
+		var inst = knifeObject.instantiate()
+		inst.init(global_position + knifeSpawnPoint, Vector2(get_global_mouse_position().x, 648 - 648*power), recharge)
+		add_sibling(inst)
+		power = 0
+		$"../leMove/".position.y = 339 - 512.0 * power
+		

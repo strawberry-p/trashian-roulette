@@ -15,6 +15,4 @@ func _physics_process(delta: float) -> void:
 	for coll in get_colliding_bodies():
 		if coll && coll.is_in_group("knife"):
 			$AnimatedSprite2D.play("pop")
-			coll.hide()
-			coll.respawn()
 			active = false
