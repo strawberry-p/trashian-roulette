@@ -3,6 +3,8 @@ extends RigidBody2D
 @export var speed = 1000
 @export var curve = 72
 
+
+var has_collided = false
 var dir: Vector2
 var pixels = 0.0
 var onStop: Callable
@@ -30,8 +32,10 @@ func modulo(a, b):
 
 func _physics_process(delta: float) -> void:
 	if !$VisibleOnScreenNotifier2D.is_on_screen():
-		queue_free()
-
+		stopped = true
+		$CollisionShape2D.set_deferred("disabled", true)
+		onStop.call()
+	
 	if global_position.distance_squared_to(dir) > 4.0:
 		position = position.move_toward(dir + Vector2(pixels, 0), speed * delta)
 		moved = true
@@ -50,4 +54,5 @@ func _process(delta: float) -> void:
 			$AudioStreamPlayer2D.playing = true
 
 func collided():
+	has_collided = true
 	$AudioStreamPlayer2D.playing = false

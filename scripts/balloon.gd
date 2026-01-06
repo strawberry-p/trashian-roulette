@@ -27,7 +27,8 @@ func _physics_process(delta: float) -> void:
 	if !active:
 		return
 	for coll in get_colliding_bodies():
-		if coll && coll.is_in_group("knife"):
+		if coll && coll.is_in_group("knife") && !coll.has_collided:
+			print(coll)
 			coll.collided()
 			var cam = get_viewport().get_camera_2d()
 			if cam && cam.has_method("shake"):

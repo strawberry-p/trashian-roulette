@@ -84,7 +84,6 @@ autowrap_mode = 1
 
 [node name="Chat" type="PanelContainer" parent="." node_paths=PackedStringArray("scoreLabel")]
 z_index = 2
-anchors_preset = -1
 offset_left = 16.0
 offset_top = 16.0
 scale = Vector2(1e-05, 1e-05)
