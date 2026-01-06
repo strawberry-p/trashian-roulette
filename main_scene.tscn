@@ -19,7 +19,7 @@ position = Vector2(564, 337)
 script = ExtResource("4_8mm7a")
 balloonObject = ExtResource("3_d5x1h")
 knifeObject = ExtResource("2_d5x1h")
-points = PackedVector2Array(-200, -100, 0, -100, 200, -100, 400, -100, -400, -100)
+points = PackedVector2Array(-150, -100, 0, -100, 150, -100, -150, -250, 0, -250, 150, -250, 0, 50, -150, 50, 150, 50)
 knifeSpawnPoint = Vector2(0, 200)
 
 [node name="bar" type="Sprite2D" parent="."]

@@ -20,9 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://dx6c632mp3cs7" path="res://sprites/balloon/frame_16.png" id="18_scsch"]
 [ext_resource type="Texture2D" uid="uid://ckol0jb0xlutk" path="res://sprites/balloon/frame_17.png" id="19_anwef"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_opjno"]
-radius = 24.0
-
 [sub_resource type="Animation" id="Animation_ghshe"]
 length = 0.001
 tracks/0/type = "value"
@@ -154,6 +151,9 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_opjno"]
+radius = 24.0
+
 [sub_resource type="LabelSettings" id="LabelSettings_hbjy3"]
 font_color = Color(0, 0, 0, 1)
 
@@ -168,9 +168,6 @@ contact_monitor = true
 max_contacts_reported = 10
 script = ExtResource("1_hbjy3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_opjno")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
 libraries = {
@@ -178,9 +175,15 @@ libraries = {
 }
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.6162407, 1.6162407)
 sprite_frames = SubResource("SpriteFrames_o3jxj")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.8125805, 0.9750972)
+shape = SubResource("CircleShape2D_opjno")
+
 [node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(150, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -194,4 +197,5 @@ grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_hbjy3")
 horizontal_alignment = 1
+vertical_alignment = 2
 autowrap_mode = 3
