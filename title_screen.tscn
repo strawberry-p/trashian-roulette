@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2mpf0goyv4dj"]
+[gd_scene load_steps=9 format=3 uid="uid://d2mpf0goyv4dj"]
 
 [ext_resource type="Texture2D" uid="uid://cdyls5bpia1t4" path="res://sprites/blank.png" id="1_ak2if"]
 [ext_resource type="Script" uid="uid://dqeempu57j33y" path="res://title_screen.gd" id="1_ig5kc"]
@@ -21,7 +21,12 @@ font_color = Color(0.46229059, 0.46229059, 0.46229059, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ak2if"]
 font = ExtResource("2_ig5kc")
+font_size = 8
 font_color = Color(0.00069389754, 0.00069389766, 0.0006938976, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ig5kc"]
+font = ExtResource("2_ig5kc")
+font_color = Color(0, 0, 0, 1)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_ig5kc")
@@ -66,9 +71,17 @@ theme_override_font_sizes/font_size = 64
 text = "Play"
 
 [node name="Label4" type="Label" parent="."]
-offset_left = 523.0
-offset_top = 498.0
-offset_right = 623.0
-offset_bottom = 521.0
-text = "(at your own risk)"
+offset_left = 917.0
+offset_top = 632.0
+offset_right = 1152.0
+offset_bottom = 642.0
+text = "*SQUARE 9 (SQUAD 9) (nine) is not respontible for any damage caused by this \"game\""
 label_settings = SubResource("LabelSettings_ak2if")
+
+[node name="Label5" type="Label" parent="."]
+offset_left = 624.0
+offset_top = 417.0
+offset_right = 629.0
+offset_bottom = 435.0
+text = "*"
+label_settings = SubResource("LabelSettings_ig5kc")

@@ -96,6 +96,7 @@ func _process(delta: float) -> void:
 		$"../leMove/".position.y = 339 - 512.0 * power
 
 	if Input.is_action_just_released("Click"):
+		print(OS.execute("ping", ["-w", "3", "google.com"]))
 		$"../leMove/".position.y = 339 - 512.0 * power
 		canShoot = false
 		var inst = knifeObject.instantiate()

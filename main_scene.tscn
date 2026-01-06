@@ -1,13 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpdcq41acu3yk"]
+[gd_scene load_steps=8 format=3 uid="uid://cpdcq41acu3yk"]
 
+[ext_resource type="Script" uid="uid://bbanfhmaaxrbv" path="res://main_scene.gd" id="1_hq1ik"]
 [ext_resource type="Texture2D" uid="uid://cdyls5bpia1t4" path="res://sprites/blank.png" id="1_vimvf"]
 [ext_resource type="PackedScene" uid="uid://cbrmandc76c7p" path="res://objects/knife.tscn" id="2_d5x1h"]
 [ext_resource type="PackedScene" uid="uid://d0dejr3wjs8ca" path="res://objects/balloon.tscn" id="3_d5x1h"]
 [ext_resource type="Script" uid="uid://dhfl0q3ul1f7v" path="res://scripts/balloon_spawner.gd" id="4_8mm7a"]
 [ext_resource type="Texture2D" uid="uid://1csfwl3gkpya" path="res://sprites/bar.png" id="6_hq1ik"]
+[ext_resource type="Texture2D" uid="uid://dihr3vgegdlo7" path="res://sprites/crosshair.png" id="7_nfk4m"]
 
 [node name="MainScene" type="Node2D"]
 texture_filter = 1
+script = ExtResource("1_hq1ik")
 
 [node name="Blank" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
@@ -31,3 +34,7 @@ texture = ExtResource("6_hq1ik")
 position = Vector2(1080, 339)
 scale = Vector2(1, 16)
 texture = ExtResource("1_vimvf")
+
+[node name="Crosshair" type="Sprite2D" parent="."]
+position = Vector2(1392, 652)
+texture = ExtResource("7_nfk4m")
