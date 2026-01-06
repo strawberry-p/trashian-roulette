@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpdcq41acu3yk"]
+[gd_scene load_steps=8 format=3 uid="uid://cpdcq41acu3yk"]
 
 [ext_resource type="Script" uid="uid://c4rknauvbgoba" path="res://scripts/knife.gd" id="1_84odl"]
 [ext_resource type="Texture2D" uid="uid://cdyls5bpia1t4" path="res://sprites/blank.png" id="1_vimvf"]
 [ext_resource type="Texture2D" uid="uid://d3sict0w641u7" path="res://sprites/knife.png" id="2_84odl"]
 [ext_resource type="PackedScene" uid="uid://d0dejr3wjs8ca" path="res://objects/balloon.tscn" id="3_d5x1h"]
 [ext_resource type="Script" uid="uid://dhfl0q3ul1f7v" path="res://scripts/balloon_spawner.gd" id="4_8mm7a"]
+[ext_resource type="Texture2D" uid="uid://1csfwl3gkpya" path="res://sprites/bar.png" id="6_hq1ik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6jybn"]
 size = Vector2(39.00003, 126)
@@ -46,3 +47,13 @@ position = Vector2(564, 337)
 script = ExtResource("4_8mm7a")
 balloonObject = ExtResource("3_d5x1h")
 points = PackedVector2Array(-200, -100, 0, -100, 200, -100, 400, -100, -400, -100)
+
+[node name="bar" type="Sprite2D" parent="."]
+position = Vector2(1080, 339)
+scale = Vector2(8, 8)
+texture = ExtResource("6_hq1ik")
+
+[node name="leMove" type="Sprite2D" parent="."]
+position = Vector2(1080, 339)
+scale = Vector2(1, 16)
+texture = ExtResource("1_vimvf")

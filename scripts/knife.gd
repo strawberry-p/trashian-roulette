@@ -8,7 +8,8 @@ var dir: Vector2
 var initialPos: Vector2
 var pixels = 0.0
 
-
+var power = 0.0;
+var power_dir = false
 
 func _ready() -> void:
 	initialPos = position
@@ -41,7 +42,20 @@ func _physics_process(delta: float) -> void:
 			scale.x -= 0.03
 	else:
 		look_at(get_global_mouse_position());
-		if Input.is_action_just_pressed("Click"):
+		if Input.is_action_pressed("Click"):
+			if(power < 1) and not power_dir:
+				power += 0.05
+			elif(not power_dir):
+				power_dir = true
+			if(power > 0) and power_dir:
+				power -= 0.05
+			elif(power_dir):
+				power_dir = false
+			$"../leMove/".position.y = 339 - 512.0 * power
+			
+		if Input.is_action_just_released("Click"):
 			pixels = 0.0
-			dir = position.direction_to(get_global_mouse_position()).normalized()
+			dir = position.direction_to(Vector2(get_global_mouse_position()[0], 648-power*648.0)).normalized()
+			power = 0
+			$"../leMove/".position.y = 339 - 512.0 * power
 			move = true
