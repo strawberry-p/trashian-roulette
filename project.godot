@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="trashian-roulette"
-run/main_scene="uid://cpdcq41acu3yk"
+run/main_scene="uid://cja1dygr2hd6u"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -26,4 +26,6 @@ Click={
 
 [rendering]
 
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 environment/defaults/default_clear_color=Color(1, 1, 1, 1)

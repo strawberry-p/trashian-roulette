@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2mpf0goyv4dj"]
+[gd_scene load_steps=9 format=3 uid="uid://cja1dygr2hd6u"]
 
-[ext_resource type="Texture2D" uid="uid://cdyls5bpia1t4" path="res://sprites/blank.png" id="1_ak2if"]
 [ext_resource type="Script" uid="uid://dqeempu57j33y" path="res://title_screen.gd" id="1_ig5kc"]
+[ext_resource type="Texture2D" uid="uid://3u1wvbevrmjr" path="res://sprites/white.png" id="2_05l2w"]
 [ext_resource type="FontFile" uid="uid://cq0yx4u4o83yn" path="res://Jersey_10/Jersey10-Regular.ttf" id="2_ig5kc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_05l2w"]
@@ -21,22 +21,29 @@ font_color = Color(0.46229059, 0.46229059, 0.46229059, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ak2if"]
 font = ExtResource("2_ig5kc")
-font_size = 8
 font_color = Color(0.00069389754, 0.00069389766, 0.0006938976, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ig5kc"]
-font = ExtResource("2_ig5kc")
+font_size = 24
 font_color = Color(0, 0, 0, 1)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_ig5kc")
 
 [node name="Blank" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
 scale = Vector2(36, 20.25)
-texture = ExtResource("1_ak2if")
+texture = ExtResource("2_05l2w")
 
 [node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
 offset_top = 1.0
 offset_right = 1152.0
 offset_bottom = 139.0
@@ -45,6 +52,8 @@ label_settings = SubResource("LabelSettings_05l2w")
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
 offset_top = 55.0
 offset_right = 1152.0
 offset_bottom = 295.0
@@ -53,6 +62,8 @@ label_settings = SubResource("LabelSettings_hafda")
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
 offset_left = 7.0
 offset_top = 210.0
 offset_right = 1159.0
@@ -61,27 +72,38 @@ text = "*- THE GAME -*"
 label_settings = SubResource("LabelSettings_tpml5")
 horizontal_alignment = 1
 
+[node name="Label4" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -351.0
+offset_top = -14.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "*SQUARE 9 (SQUAD 9) (nine) is not respontible for any damage caused by this \"game\""
+label_settings = SubResource("LabelSettings_ak2if")
+
 [node name="Button" type="Button" parent="."]
-offset_left = 525.0
-offset_top = 423.0
-offset_right = 622.0
-offset_bottom = 501.0
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_left = 468.0
+offset_top = 381.0
+offset_right = 668.0
+offset_bottom = 459.0
 theme_override_fonts/font = ExtResource("2_ig5kc")
 theme_override_font_sizes/font_size = 64
 text = "Play"
 
-[node name="Label4" type="Label" parent="."]
-offset_left = 917.0
-offset_top = 632.0
-offset_right = 1152.0
-offset_bottom = 642.0
-text = "*SQUARE 9 (SQUAD 9) (nine) is not respontible for any damage caused by this \"game\""
-label_settings = SubResource("LabelSettings_ak2if")
-
 [node name="Label5" type="Label" parent="."]
-offset_left = 624.0
-offset_top = 417.0
-offset_right = 629.0
-offset_bottom = 435.0
+texture_filter = 1
+layout_mode = 0
+offset_left = 672.0
+offset_top = 374.0
+offset_right = 685.0
+offset_bottom = 408.0
 text = "*"
 label_settings = SubResource("LabelSettings_ig5kc")
