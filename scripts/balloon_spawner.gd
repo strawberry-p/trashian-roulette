@@ -4,6 +4,7 @@ extends Node2D
 @export var knifeObject: PackedScene
 @export var points: PackedVector2Array
 @export var knifeSpawnPoint: Vector2
+@export var chargeometer: Label
 
 var positions = []
 
@@ -11,6 +12,7 @@ var canShoot = true
 var power = 0.0;
 var raw_power = 0.0;
 var power_dir = false
+var hold_click = false
 
 var fileIndex = 8
 
@@ -81,10 +83,12 @@ var knife: Node2D
 var last_knife: Node2D
 
 func _process(delta: float) -> void:
+	chargeometer.visible = !hold_click
 	if !canShoot:
 		return
 	
 	if Input.is_action_pressed("Click"):
+		hold_click = true
 		if(raw_power < 1) and not power_dir:
 			raw_power += 0.05
 			power = easeOutCubic(raw_power)
@@ -102,6 +106,7 @@ func _process(delta: float) -> void:
 		$"../leMove/".position.y = 339 - 512.0 * power
 
 	if Input.is_action_just_released("Click"):
+		hold_click = false
 		$"../leMove/".position.y = 339 - 512.0 * power
 		canShoot = false
 		var inst = knifeObject.instantiate()

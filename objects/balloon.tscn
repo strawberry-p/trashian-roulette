@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d0dejr3wjs8ca"]
+[gd_scene load_steps=28 format=3 uid="uid://d0dejr3wjs8ca"]
 
 [ext_resource type="Script" uid="uid://r6ju64u3vtal" path="res://scripts/balloon.gd" id="1_hbjy3"]
 [ext_resource type="Texture2D" uid="uid://su61g84ixoow" path="res://sprites/balloon/frame1.png" id="3_j1fmh"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://cdfom42kpnqwi" path="res://sprites/balloon/frame17.png" id="19_anwef"]
 [ext_resource type="AudioStream" uid="uid://6xw6rax6ea8p" path="res://other/hell_yeah.wav" id="20_3k386"]
 [ext_resource type="Texture2D" uid="uid://deuyq232tlql5" path="res://sprites/balloon/frame18.png" id="20_24gft"]
+[ext_resource type="Texture2D" uid="uid://2cb6ov3f2tfh" path="res://sprites/balloon/bln1.png" id="21_j1fmh"]
 
 [sub_resource type="Animation" id="Animation_ghshe"]
 length = 0.001
@@ -157,7 +158,7 @@ radius = 24.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_hbjy3"]
 line_spacing = -5.0
-font_size = 14
+font_size = 13
 
 [node name="Balloon" type="RigidBody2D" groups=["balloon"]]
 texture_filter = 1
@@ -184,16 +185,25 @@ sprite_frames = SubResource("SpriteFrames_o3jxj")
 scale = Vector2(0.8125805, 0.9750972)
 shape = SubResource("CircleShape2D_opjno")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_3k386")
+volume_db = 3.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 0.18230061
+scale = Vector2(2.8688722, 2.8688722)
+texture = ExtResource("21_j1fmh")
+
 [node name="Label" type="Label" parent="."]
-custom_minimum_size = Vector2(175, 0)
+custom_minimum_size = Vector2(190, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -75.0
+offset_left = -95.0
 offset_top = 41.0
-offset_right = 75.0
+offset_right = 95.0
 offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -201,7 +211,3 @@ label_settings = SubResource("LabelSettings_hbjy3")
 horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 3
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("20_3k386")
-volume_db = 3.0
