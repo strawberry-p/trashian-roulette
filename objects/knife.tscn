@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbrmandc76c7p"]
+[gd_scene load_steps=5 format=3 uid="uid://cbrmandc76c7p"]
 
 [ext_resource type="Script" uid="uid://c4rknauvbgoba" path="res://scripts/knife.gd" id="1_f3qjk"]
 [ext_resource type="Texture2D" uid="uid://d3sict0w641u7" path="res://sprites/knife.png" id="2_bx2o7"]
+[ext_resource type="AudioStream" uid="uid://5qkypkg1krkg" path="res://other/oh_no.wav" id="3_bx2o7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6jybn"]
 size = Vector2(39.00003, 126)
@@ -28,3 +29,6 @@ scale = Vector2(4, 4)
 texture = ExtResource("2_bx2o7")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_bx2o7")

@@ -7,6 +7,8 @@ var dir: Vector2
 var pixels = 0.0
 var onStop: Callable
 var stopped = false
+var moved = false
+var collided = false
 
 func init(pos: Vector2, towards: Vector2, doOnStop: Callable) -> void:
 	position = pos
@@ -33,6 +35,7 @@ func _physics_process(delta: float) -> void:
 
 	if global_position.distance_squared_to(dir) > 4.0:
 		position = position.move_toward(dir + Vector2(pixels, 0), speed * delta)
+		moved = true
 	elif !stopped:
 		stopped = true
 		$CollisionShape2D.set_deferred("disabled", false)
@@ -40,3 +43,8 @@ func _physics_process(delta: float) -> void:
 
 	if scale.x > 0.2:
 		scale.x -= 0.03
+func _process(delta: float) -> void:
+	if len(get_colliding_bodies()) < 1 and moved and global_position.distance_squared_to(dir) < 4.0 and not collided:
+			moved = false
+			$AudioStreamPlayer2D.pitch_scale = randf() * 2
+			$AudioStreamPlayer2D.playing = true 

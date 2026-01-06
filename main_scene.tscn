@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cpdcq41acu3yk"]
 
-[ext_resource type="Script" path="res://main_scene.gd" id="1_hq1ik"]
+[ext_resource type="Script" uid="uid://bbanfhmaaxrbv" path="res://main_scene.gd" id="1_hq1ik"]
 [ext_resource type="Texture2D" uid="uid://cdyls5bpia1t4" path="res://sprites/blank.png" id="1_vimvf"]
 [ext_resource type="PackedScene" uid="uid://cbrmandc76c7p" path="res://objects/knife.tscn" id="2_d5x1h"]
 [ext_resource type="PackedScene" uid="uid://d0dejr3wjs8ca" path="res://objects/balloon.tscn" id="3_d5x1h"]
