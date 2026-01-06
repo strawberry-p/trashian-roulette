@@ -7,6 +7,7 @@ extends Node2D
 
 var canShoot = true
 var power = 0.0;
+var raw_power = 0.0;
 var power_dir = false
 
 func calculate_score(dir: String, filename: String) -> int:
@@ -20,7 +21,7 @@ func calculate_score(dir: String, filename: String) -> int:
 			return 2
 		"ebup", "mp3", "wav", "txt", "iso", "ttf", "mp4", "mkv", "jpg", "jpeg", "png", "zip", "gif", "webm":
 			return 1
-		"log", "tar.gz", "tmp", "temp", "old", "dmp", "gid", "fts", "bak", "out":
+		"log", "gz", "tmp", "temp", "old", "dmp", "gid", "fts", "bak", "out":
 			return -1
 		_:
 			return 0
@@ -58,6 +59,9 @@ func gather_files(path: String) -> Array:
 
 @onready var files = gather_files(OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS))
 
+func easeOutCubic(x):
+	return 1 - (1 - x) * (1 - x);
+
 func _ready() -> void:
 	assert(points.size() <= files.size())
 	for i in range(points.size()):
@@ -75,14 +79,20 @@ func _process(delta: float) -> void:
 		return
 	
 	if Input.is_action_pressed("Click"):
-		if(power < 1) and not power_dir:
-			power += 0.05
+		if(raw_power < 1) and not power_dir:
+			raw_power += 0.05
+			power = easeOutCubic(raw_power)
 		elif(not power_dir):
 			power_dir = true
-		if(power > 0) and power_dir:
-			power -= 0.05
+		if(raw_power > 0) and power_dir:
+			raw_power -= 0.05
+			power = easeOutCubic(raw_power)
 		elif(power_dir):
 			power_dir = false
+		if(power < 0):
+			power = 0
+		if(power > 1):
+			power = 1
 		$"../leMove/".position.y = 339 - 512.0 * power
 
 	if Input.is_action_just_released("Click"):
