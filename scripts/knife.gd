@@ -41,17 +41,19 @@ func _physics_process(delta: float) -> void:
 		moved = true
 	elif !stopped:
 		stopped = true
+		scale.x = -0.3
 		$CollisionShape2D.set_deferred("disabled", false)
 		onStop.call()
 
-	if scale.x > 0.2:
+	if scale.x > 0.3:
 		scale.x -= 0.03
+			
 func _process(delta: float) -> void:
 	if len(get_colliding_bodies()) < 1 and moved and global_position.distance_squared_to(dir) < 4.0:
-			moved = false
-			$AudioStreamPlayer2D.pitch_scale = randf() * 2
-			$AudioStreamPlayer2D.seek(0)
-			$AudioStreamPlayer2D.playing = true
+		moved = false
+		$AudioStreamPlayer2D.pitch_scale = randf() * 0.7 + 0.7
+		$AudioStreamPlayer2D.seek(0)
+		$AudioStreamPlayer2D.playing = true
 
 func collided():
 	has_collided = true

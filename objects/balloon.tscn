@@ -178,8 +178,10 @@ libraries = {
 }
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1.6162407, 1.6162407)
+modulate = Color(1, 1, 1, 0.6784314)
+scale = Vector2(1e-05, 1e-05)
 sprite_frames = SubResource("SpriteFrames_o3jxj")
+animation = &"pop"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("20_3k386")
@@ -187,7 +189,7 @@ volume_db = 3.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 0.18230061
-scale = Vector2(2.8688722, 2.8688722)
+scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("21_j1fmh")
 
 [node name="Label" type="Label" parent="."]
